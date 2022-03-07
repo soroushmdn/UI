@@ -1,0 +1,77 @@
+@media (max-width: 800px) {
+  // cards
+  #cards {
+    margin: 3rem 0;
+    .container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Table
+  #tableUI .table-background {
+    margin: 3rem 0;
+    padding: 1rem;
+    table {
+      th:nth-child(4),
+      td:nth-child(4) {
+        display: none;
+      }
+    }
+  }
+  // Login
+  #loginUI {
+    .container {
+      .login {
+        grid-template-columns: 1fr;
+        margin: 3rem 0;
+        form {
+          border-right: none;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  nav {
+    .container {
+      flex-direction: column;
+      ul {
+        padding: 1rem;
+      }
+    }
+  }
+
+  // Table
+  #tableUI {
+    .container {
+      padding: 0 0.2rem;
+      .table-background {
+        font-size: 0.7rem;
+        padding: 0.5rem;
+        .search-area {
+          padding: 1rem 0;
+
+          .filter {
+            padding: 0.5rem 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  //Login
+  #loginUI {
+    .container {
+      padding: 0 1.5rem;
+      .login {
+        grid-template-columns: 1fr;
+        form {
+          padding: 1.5rem;
+        }
+        .features {
+          padding: 1.5rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,327 @@
+@import "config";
+@import "utilities";
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
+
+// General(core) Styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Fredoka", sans-serif;
+  background-color: $primary-color;
+  line-height: 1.5;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+ul {
+  list-style-type: none;
+}
+
+// Navbar
+nav {
+  padding: 1rem 0;
+  background-color: $nav-color;
+  .logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // height: 100%;
+    ul {
+      display: flex;
+      a {
+        padding: 0.5rem;
+        margin: 0.5rem;
+        &:hover {
+          border-bottom: 1px solid $secondary-color;
+        }
+      }
+      .current {
+        border-bottom: 1px solid $secondary-color;
+      }
+    }
+  }
+}
+
+// Cards
+#cards {
+  margin-top: 8rem;
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    .card {
+      background-color: #fff;
+      border-radius: 0.5rem;
+      overflow: hidden;
+
+      .card-header img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .card-body {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+        min-height: 300px;
+        .card-content {
+          h4 {
+            margin: 0.5rem 0;
+          }
+          p {
+            font-size: 0.9rem;
+            // margin-bottom: 4rem;
+          }
+        }
+        .card-user {
+          display: flex;
+
+          img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 0.5rem;
+          }
+          small {
+            color: #888785;
+          }
+        }
+      }
+    }
+  }
+}
+// Table
+#tableUI .table-background {
+  background-color: $table-color;
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 10px;
+
+  .user {
+    color: #fff;
+    font-weight: bold;
+    i {
+      background-color: #fff;
+      border-radius: 50%;
+      color: #000;
+      padding: 0.5rem;
+      margin: 0.5rem 0.5rem 0.5rem 0;
+    }
+  }
+  .search-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    form {
+      border: 2px solid lighten($table-color, 10%);
+      border-radius: 5px;
+      input {
+        background-color: transparent;
+        border: none;
+        color: $light-color;
+        padding: 0.7rem;
+        &:focus {
+          outline: none;
+        }
+      }
+      button {
+        background-color: transparent;
+        border: none;
+        color: $light-color;
+        padding: 0.7rem;
+        cursor: pointer;
+        font-family: inherit;
+      }
+    }
+    .filter {
+      background-color: lighten($table-color, 10%);
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      color: $light-color;
+      cursor: pointer;
+      font-family: inherit;
+    }
+  }
+
+  table {
+    width: 100%;
+    color: $light-color;
+    th,
+    td {
+      text-align: left;
+      padding: 1rem;
+    }
+    tbody {
+      tr {
+        background-color: #343a40;
+        &:hover {
+          background-color: darken(#343a40, 10%);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        td:first-child {
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+        }
+        td:last-child {
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          text-align: center;
+        }
+        .delete {
+          background-color: lighten(#343a40, 10%);
+          border: none;
+          color: $light-color;
+          padding: 0.5rem;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+
+      .priority-200 {
+        td:first-child {
+          border-left: 5px solid #9c7c64;
+        }
+        .fa-circle {
+          color: #9c7c64;
+        }
+      }
+      .priority-300 {
+        td:first-child {
+          border-left: 5px solid #5c8cdc;
+        }
+        .fa-circle {
+          color: #5c8cdc;
+        }
+      }
+      .priority-600 {
+        td:first-child {
+          border-left: 5px solid #40c587;
+        }
+        .fa-circle {
+          color: #40c587;
+        }
+      }
+      .fa-circle {
+        transform: scale(0.5);
+      }
+    }
+  }
+  .add-btn {
+    float: right;
+    padding: 0.7rem;
+    margin-top: 1rem;
+    border-radius: 50%;
+    border: none;
+    background-color: $secondary-color;
+    cursor: pointer;
+    color: $light-color;
+    background-image: linear-gradient(
+      326deg,
+      $primary-color 0%,
+      $secondary-color 74%
+    );
+  }
+}
+
+// Login
+#loginUI {
+  .login {
+    background-color: #fff;
+    margin-top: 5rem;
+    border: solid 20px lighten($secondary-color, 40%);
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+
+    form {
+      padding: 2.5rem;
+      border-right: 1px solid $light-color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 20px;
+        margin-right: 0.5rem;
+      }
+      a {
+        color: $secondary-color;
+      }
+      .form-control {
+        margin: 0.5rem 0;
+        width: 100%;
+        label {
+          display: inline-block;
+          margin-bottom: 0.3rem;
+          font-weight: bold;
+        }
+        input {
+          width: 100%;
+          font-family: inherit;
+          padding: 0.6rem;
+          border: 2px solid $light-color;
+          border-radius: 5px;
+          &:focus {
+            border-color: $secondary-color;
+            outline: none;
+          }
+        }
+      }
+
+      .checkbox-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        font-size: 0.8rem;
+        label {
+          margin-left: 2px;
+          color: #7a7e8c;
+        }
+        a {
+          margin-left: auto;
+        }
+      }
+    }
+
+    .features {
+      padding: 2.5rem;
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: center;
+      // align-items: center;
+      .feature {
+        position: relative;
+        padding-left: 2rem;
+        margin: 2.5rem 0;
+        i {
+          position: absolute;
+          top: 6px;
+          left: 0;
+          color: #2fa4ff;
+        }
+        p {
+          margin: 0.5rem 0;
+        }
+      }
+    }
+  }
+}
+
+// Mobile & Tablet
+@import "media";
